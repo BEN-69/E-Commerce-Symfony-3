@@ -1,0 +1,32 @@
+services:
+    tva.twig_extension:
+        class: Ben\EcommerceBundle\Twig\Extension\TvaExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+
+
+    montantTva.twig_extension:
+        class: Ben\EcommerceBundle\Twig\Extension\MontantTvaExtension
+        tags:
+            - { name: twig.extension }
+
+
+    redirectionListener:
+        class: Ben\EcommerceBundle\Listener\RedirectionListener
+        arguments:
+            - '@service_container'
+            - '@session'
+            - '@security.token_storage'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+
+
+    setNewReference:
+          class: Ben\EcommerceBundle\Services\GetReference
+          arguments: ['@security.authorization_checker','@doctrine.orm.entity_manager']
+
+    setNewFacture:
+          class: Ben\EcommerceBundle\Services\GetFacture
+          arguments: ['@service_container']

@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Erreur : {{ status_text }} - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="span3">
+
+                {% include ':layout:category.html.twig' %}
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% include ':layout:mon-compte.html.twig' %}
+                {% else %}
+                    {% include ':layout:se-connecter.html.twig' %}
+                {% endif %}
+
+                {{ render(controller('BenEcommerceBundle:Panier:menu' )) }}
+
+            </div>
+
+
+
+            <div class="span9">
+
+                <h2>Oops! Une erreur s'est produite durant le chargement de la page</h2>
+
+                <h3>Notre application a retourné une erreur {{ status_code }} : {{ status_text }}.</h3>
+
+                <div>
+                    N'hésitez pas à contacter le webmaster du site pour corrger l'erreur.
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

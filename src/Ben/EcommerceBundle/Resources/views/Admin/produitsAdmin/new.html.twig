@@ -1,0 +1,18 @@
+{% extends '::admin/layoutAdmin.html.twig' %}
+
+{% block bodyAdmin %}
+    <h1>Produit creation</h1>
+
+    {{ form_start(form) }}
+    <div class="offset1">
+                {{ form_widget(form , {'attr': {'class': ''}}) }}
+                <input type="submit" value="Create" />
+        </div>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_produits_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

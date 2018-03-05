@@ -1,0 +1,31 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="span9">
+    <h2>Mes informations</h2>
+
+    <div id="collapseOne" class="accordion-body collapse in">
+        <div class="accordion-inner">
+
+            <div class="span4">
+                <div class="fos_user_user_show">
+                    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+
+                    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+
+                    {% for role in user.roles %}
+                        {% if(role == 'ROLE_ADMIN' ) %}
+                            <a href="{{ path('admin_produits_index') }}" class="btn btn-primary"> Administration  </a>
+                        {% endif %}
+                        <br/>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
