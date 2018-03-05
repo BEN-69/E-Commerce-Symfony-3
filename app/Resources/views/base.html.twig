@@ -1,42 +1,0 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %} {{ titre }} {% endblock %}</title>
-
-        <meta name="keywords" content="{% block motsCles %}{% endblock %}"/>
-        <meta name="description" content="{% block description %}{% endblock %}"/>
-
-        {% block stylesheets %}
-            {% stylesheets 'Resources/public/css/bootstrap.css'
-            'Resources/public/css/bootstrap-responsive.css'
-            'Resources/public/css/style.css'
-            'Resources/public/css/font-awesome.css'
-            filter='cssrewrite' %}  
-
-            <link rel="stylesheet" href="{{ asset_url }}">  
-            {% endstylesheets %}  
-        {% endblock %}
-
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-
-    {% block header %}{% endblock %}
-    {% block body %}{% endblock %}
-    {% block footer %}{% endblock %}
-    {% block javascripts %}
-
-        {% javascripts 'Resources/public/js/jquery-1.10.0.min.js'
-        'Resources/public/js/bootstrap.js'
-        %}
-
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-
-    {% endblock %}
-    <script src="{{ asset('bundles/benpages/ckeditor/ckeditor.js') }}"></script>
-
-
-    </body>
-</html>
