@@ -1,0 +1,38 @@
+{% set totalHT=0  %}
+<div class="well">
+    <ul class="nav nav-list">
+        <li class="nav-header">Mon panier</li>
+    </ul>
+
+    {% if  produits|length == 0  %}
+        Votre panier est vide
+    {% else %}
+
+
+        {% for produit in produits %}
+            {% set totalHT=totalHT+produit.prix * panier[produit.id]  %}
+        {% endfor %}
+
+    <div class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-shopping-cart"></i>
+        {% if produits|length == 1 %}
+                {{ produits|length }} article dans votre panier
+        {% else %}
+                 {{ produits|length }} articles dans votre panier
+        {% endif %}
+            <b class="caret"></b></a>
+        </a>
+        <div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+
+            {% for produit in produits %}
+                <p>{{ produit.nom }} x ( {{ panier[produit.id] }} ) <span class="pull-right">{{ produit.prix * panier[produit.id] }} €</span></p>
+            {% endfor %}
+            <p> <span class="pull-right">TotalHT : {{ totalHT }}€</span></p>
+            <a href="{{ path('page_panier') }}" class="btn btn-primary">Mon Panier</a>
+        </div>
+    </div>
+    {% endif %}
+
+
+</div>

@@ -1,0 +1,13 @@
+<div class="span3">
+
+    {% include ':layout:category.html.twig' %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% include ':layout:mon-compte.html.twig' %}
+    {% else %}
+        {% include ':layout:se-connecter.html.twig' %}
+    {% endif %}
+
+    {{ render(controller('BenEcommerceBundle:Panier:menu' )) }}
+
+</div>

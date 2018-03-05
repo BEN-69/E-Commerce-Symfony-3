@@ -1,0 +1,42 @@
+ben_utilisateur_utilisateurs:
+    resource: "@BenUtilisateurBundle/Controller/UtilisateursAdminController.php"
+    type:     annotation
+
+ben_ecommerce_commandes:
+    resource: "@BenEcommerceBundle/Controller/CommandesAdminController.php"
+    type:     annotation
+
+ben_ecommerce_categories:
+    resource: "@BenEcommerceBundle/Controller/CategoriesAdminController.php"
+    type:     annotation
+
+ben_ecommerce_produits:
+    resource: "@BenEcommerceBundle/Controller/ProduitsAdminController.php"
+    type:     annotation
+
+ben_pages_pages:
+    resource: "@BenPagesBundle/Controller/PagesAdminController.php"
+    type:     annotation
+
+ben_ecommerce:
+    resource: "@BenEcommerceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ben_pages:
+    resource: "@BenPagesBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ben_utilisateur:
+    resource: "@BenUtilisateurBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+# fos_user
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+#  _liip_imagine
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

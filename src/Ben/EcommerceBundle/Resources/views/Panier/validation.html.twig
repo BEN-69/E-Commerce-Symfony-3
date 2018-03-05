@@ -1,0 +1,98 @@
+{% extends '::default/layoutDefault.html.twig' %}
+
+
+{% block bodyDefault %}
+
+    <div class="span9">
+
+        <h2>Valider mon parnier</h2>
+        <form>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Références</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total HT</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for produit in cmd.commande.produit %}
+                    <tr>
+                        <td>{{ produit.reference }}</td>
+                        <td> {{ produit.quantite }} </td>
+                        <td>{{ produit.prixHT }} €</td>
+                        <td>{{ produit.prixHT * produit.quantite }} €</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </form>
+
+        <table class="table table-striped table-hover span2 pull-right">
+            <tbody>
+            <tr>
+                <th>Total HT</th>
+                <td>{{ cmd.commande.prixHT }}€</td>
+            </tr>
+
+            {% for key, tva in cmd.commande.tva %}
+                <tr>
+                    <th>TVA {{ key }}</th>
+                    <td>{{ tva }}€</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <th>Total TTC</th>
+                <td>{{ cmd.commande.prixTTC }}€</td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <div class="span3 pull-left">
+            <h4>Adresse de livraison</h4>
+            <dl class="">
+                <dt>{{ cmd.commande.livraison.prenom }} {{ cmd.commande.livraison.nom }}</dt>
+                <dt>{{ cmd.commande.livraison.adresse }} </dt>
+                <dt>{{ cmd.commande.livraison.cp }} {{ cmd.commande.livraison.ville }} {{ cmd.commande.livraison.pays }}</dt>
+
+            </dl>
+        </div>
+
+        <div class="span3 pull-left">
+            <h4>Adresse de facturation</h4>
+            <dl class="">
+                <dt>{{ cmd.commande.facturation.prenom }} {{ cmd.commande.facturation.nom }}</dt>
+                <dt>{{ cmd.commande.facturation.adresse }} </dt>
+                <dt>{{ cmd.commande.facturation.cp }} {{ cmd.commande.facturation.ville }} {{ cmd.commande.facturation.pays }}</dt>
+
+            </dl>
+        </div>
+
+
+
+        <div class="clearfix"></div>
+
+        <form action="{{ path('page_validationCommande', { 'id' : cmd.id }) }}" method="post" >
+            <input name="token" type="hidden" value="{{ cmd.commande.token }}" />
+            <input name="prix" type="hidden" value="{{ cmd.commande.prixTTC }}" />
+            <input name="date" type="hidden" value="{{ cmd.date|date('dmyhms') }}" />
+            <button type="submit" class="btn btn-success pull-right">Payer</button>
+        </form>
+
+        <a href="{{ path('page_livraison') }}" class="btn btn-primary">Retour</a>
+
+
+
+
+
+
+
+    </div>
+
+{% endblock %}

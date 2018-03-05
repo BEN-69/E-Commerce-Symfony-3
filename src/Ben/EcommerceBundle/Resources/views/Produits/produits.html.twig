@@ -1,0 +1,54 @@
+{% extends '::default/layoutDefault.html.twig' %}
+
+
+    {% block title %}
+        {% if t is defined %}
+            {{ produits['1'].categorie.nom }}
+        {% else %}
+            {{ titre }}
+        {% endif %}
+    {% endblock %}
+
+{% block bodyDefault %}
+
+    <div class="span9">
+        <h2> Produits </h2>
+        {% if produits|length != 0 %}
+            <ul class="thumbnails">
+
+                {% for produit in produits %}
+                    <li class="span3">
+                        <div class="thumbnail">
+
+                            <img src="{{ produit.image.AssetPath|imagine_filter('produitThumb')  }}" alt="{{ produit.nom }}" width="300" height="150">
+                            <div class="caption">
+                                <h4>{{ produit.nom }}</h4>
+                                <p>{{ produit.prix|tva(produit.tva.multiplicate) }} €</p>
+                                <a class="btn btn-primary"
+                                   href="{{ path('page_produit',{'id': produit.id } ) }}">Plus d'infos</a>
+                                {% if panier[produit.id] is not defined %}
+                                    <a class="btn btn-success"
+                                       href="{{ path('page_ajouterPanier',{'id':produit.id} ) }}">Ajouter au
+                                        panier</a>
+                                {% else %}
+                                    <a class="btn btn-success" href="{{ path('page_panier') }}">Déja au
+                                        panier</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+
+            </ul>
+
+            <div class="navigation">
+                {{ knp_pagination_render(produits) }}
+            </div>
+
+        {% else %}
+
+            <p>Aucun Produit pour le moment </p>
+        {% endif %}
+    </div>
+
+{% endblock %}

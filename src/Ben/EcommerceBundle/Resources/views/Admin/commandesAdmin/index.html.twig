@@ -1,0 +1,35 @@
+{% extends '::admin/layoutAdmin.html.twig' %}
+
+{% block bodyAdmin %}
+    <h1>Commandes list</h1>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Valider</th>
+                <th>Date</th>
+                <th>Reference</th>
+                <th>Utilisateur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td><a href="{{ path('admin_factures_show', { 'id': commande.id }) }}">{{ commande.id }}</a></td>
+                <td>{% if commande.valider %}Yes{% else %}No{% endif %}</td>
+                <td>{% if commande.date %}{{ commande.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ commande.reference }}</td>
+                <td>{{ commande.utilisateur.username }}</td>
+                <td>
+                    <a href="{{ path('admin_factures_show', { 'id' : commande.id }) }}" target="_blank"><i class="icon-book"></i></a>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
