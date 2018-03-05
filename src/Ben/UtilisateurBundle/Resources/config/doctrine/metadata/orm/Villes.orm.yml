@@ -1,0 +1,226 @@
+Villes:
+    type: entity
+    table: villes
+    indexes:
+        ville_departement:
+            columns:
+                - ville_departement
+        ville_nom:
+            columns:
+                - ville_nom
+        ville_nom_reel:
+            columns:
+                - ville_nom_reel
+        ville_code_commune:
+            columns:
+                - ville_code_commune
+        ville_code_postal:
+            columns:
+                - ville_code_postal
+        ville_longitude_latitude_deg:
+            columns:
+                - ville_longitude_deg
+                - ville_latitude_deg
+        ville_nom_soundex:
+            columns:
+                - ville_nom_soundex
+        ville_nom_metaphone:
+            columns:
+                - ville_nom_metaphone
+        ville_population_2010:
+            columns:
+                - ville_population_2010
+        ville_nom_simple:
+            columns:
+                - ville_nom_simple
+    uniqueConstraints:
+        ville_code_commune_2:
+            columns:
+                - ville_code_commune
+        ville_slug:
+            columns:
+                - ville_slug
+    id:
+        villeId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: ville_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        villeDepartement:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+            column: ville_departement
+        villeSlug:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ville_slug
+        villeNom:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: ville_nom
+        villeNomSimple:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: ville_nom_simple
+        villeNomReel:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: ville_nom_reel
+        villeNomSoundex:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: ville_nom_soundex
+        villeNomMetaphone:
+            type: string
+            nullable: true
+            length: 22
+            options:
+                fixed: false
+            column: ville_nom_metaphone
+        villeCodePostal:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ville_code_postal
+        villeCommune:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+            column: ville_commune
+        villeCodeCommune:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+            column: ville_code_commune
+        villeArrondissement:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: true
+            column: ville_arrondissement
+        villeCanton:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: false
+            column: ville_canton
+        villeAmdi:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: true
+            column: ville_amdi
+        villePopulation2010:
+            type: integer
+            nullable: true
+            options:
+                unsigned: true
+            column: ville_population_2010
+        villePopulation1999:
+            type: integer
+            nullable: true
+            options:
+                unsigned: true
+            column: ville_population_1999
+        villePopulation2012:
+            type: integer
+            nullable: true
+            options:
+                unsigned: true
+                comment: approximatif
+            column: ville_population_2012
+        villeDensite2010:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ville_densite_2010
+        villeSurface:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: ville_surface
+        villeLongitudeDeg:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: ville_longitude_deg
+        villeLatitudeDeg:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: ville_latitude_deg
+        villeLongitudeGrd:
+            type: string
+            nullable: true
+            length: 9
+            options:
+                fixed: false
+            column: ville_longitude_grd
+        villeLatitudeGrd:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+            column: ville_latitude_grd
+        villeLongitudeDms:
+            type: string
+            nullable: true
+            length: 9
+            options:
+                fixed: false
+            column: ville_longitude_dms
+        villeLatitudeDms:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+            column: ville_latitude_dms
+        villeZmin:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ville_zmin
+        villeZmax:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: ville_zmax
+    lifecycleCallbacks: {  }

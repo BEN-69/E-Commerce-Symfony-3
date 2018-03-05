@@ -18,9 +18,9 @@ class UtilisateursAdressesType extends AbstractType
             ->add('prenom')
             ->add('telephone')
             ->add('adresse')
-            ->add('cp')
+            ->add('cp',null, array('attr' => array('class' => 'cp','maxlength' => 5)))
+            ->add('ville',null, array('attr' => array('class' => 'ville')))
             ->add('pays')
-            ->add('ville')
             ->add('complement',null,array('required' => false));
             //->add('utilisateur');
     }

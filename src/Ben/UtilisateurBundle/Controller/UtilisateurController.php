@@ -4,10 +4,30 @@ namespace Ben\UtilisateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class UtilisateurController extends Controller
 {
+
+
+    /**
+     * @Route("/villes/{cp}", name="page_villes")
+     */
+    public function villesAction($cp)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $villeCodePostal = $em->getRepository('BenUtilisateurBundle:Villes')->findOneBy(array('villeCodePostal' => $cp));
+
+        if ($villeCodePostal) {
+            $ville = $villeCodePostal->getVilleNom();
+        } else {
+            $ville = null;
+        }
+        $response = new JsonResponse();
+        return $response->setData(array('ville' => $ville));
+    }
+
 
     /**
      * @Route("/factures", name="page_factures")
