@@ -3,6 +3,7 @@
 namespace Ben\PagesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Ben\PagesBundle\Validator as CustomAssert;
 
 /**
@@ -22,6 +23,19 @@ class Pages
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
 
     /**
      * @var string
@@ -96,5 +110,53 @@ class Pages
     {
         return $this->contenu;
     }
-}
+    
 
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Pages
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Pages
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+}

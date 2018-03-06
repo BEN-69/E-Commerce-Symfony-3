@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
          //   new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             //new JMS\AopBundle\JMSAopBundle(),
             //new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),

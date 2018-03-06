@@ -119,3 +119,11 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [470, 470], mode: inset }
+
+
+# Stof\DoctrineExtensionsBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            timestampable: true
