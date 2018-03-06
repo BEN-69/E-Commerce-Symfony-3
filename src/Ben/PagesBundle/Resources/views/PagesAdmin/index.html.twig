@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <th>Titre</th>
+                <th>Created</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,11 +16,12 @@
         {% for page in pages %}
             <tr>
                 <td>{{ page.titre }}</td>
+                <td>{{ page.created | date('Y-m-d H:i:s') }}</td>
                 <td>
 
-                            <a href="{{ path('admin_pages_show', { 'id': page.id }) }}"><i class="icon-eye-open"></i></a>
+                    <a href="{{ path('admin_pages_show', { 'id': page.id }) }}"><i class="icon-eye-open"></i></a>
 
-                            <a href="{{ path('admin_pages_edit', { 'id': page.id }) }}"><i class="icon-edit"></i></a>
+                    <a href="{{ path('admin_pages_edit', { 'id': page.id }) }}"><i class="icon-edit"></i></a>
 
                 </td>
             </tr>

@@ -9,12 +9,12 @@ class DefaultController extends Controller
 {
 
     /**
-     * @Route("/pages/{id}", name="page_pages")
+     * @Route("/pages/{slug}", name="page_pages")
      */
-    public function pagesAction($id)
+    public function pagesAction($slug)
     {
 
-        $page=$this->getDoctrine()->getRepository("BenPagesBundle:Pages")->find($id);
+        $page=$this->getDoctrine()->getRepository("BenPagesBundle:Pages")->findOneBy(array('slug'=>$slug));
 
         if(!$page) throw $this->createNotFoundException('La page n\'existe pas ');
 

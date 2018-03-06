@@ -18,7 +18,7 @@ class PagesType extends AbstractType
        // $builder->add('titre')->add('contenu');
         $builder
             ->add('titre',TextType::class)
-            ->add('contenu',null,array('attr' => array('class' => 'ckeditor')));
+            ->add('contenu',null, array('attr' => array('class' => 'ckeditor')));
 
     }/**
      * {@inheritdoc}

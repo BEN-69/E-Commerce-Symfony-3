@@ -28,7 +28,7 @@ class PagesAdminController extends Controller
         $pages = $em->getRepository('BenPagesBundle:Pages')->findAll();
 
         return $this->render('BenPagesBundle:PagesAdmin:index.html.twig', array(
-            'pages' => $pages,
+                                                                                         'pages' => $pages,
         ));
     }
 

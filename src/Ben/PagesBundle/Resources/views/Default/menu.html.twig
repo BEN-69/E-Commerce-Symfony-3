@@ -1,5 +1,5 @@
 {% for page in pages %}
 
-    <li><a href="{{ path('page_pages',{'id': page.id} ) }}">{{ page.titre }}</a></li>
+    <li><a href="{{ path('page_pages',{'slug': page.slug} ) }}">{{ page.titre }}</a></li>
 
 {% endfor %}
