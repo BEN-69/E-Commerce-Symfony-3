@@ -3,12 +3,14 @@
 namespace Ben\PagesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ben\PagesBundle\Validator as CustomAssert;
 
 /**
  * Pages
  *
  * @ORM\Table(name="pages")
  * @ORM\Entity(repositoryClass="Ben\PagesBundle\Repository\PagesRepository")
+ *
  */
 class Pages
 {
@@ -32,6 +34,7 @@ class Pages
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @CustomAssert\contraintsCheckUrl()
      */
     private $contenu;
 

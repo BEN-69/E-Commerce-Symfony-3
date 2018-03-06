@@ -2,3 +2,16 @@ services:
 #    ben_pages.example:
 #        class: Ben\PagesBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+
+  CurlUrl:
+      class: Ben\PagesBundle\Services\CurlUrl
+
+  validator.check.url:
+      class: Ben\PagesBundle\Validator\contraintsCheckUrlValidator
+      arguments: ['@CurlUrl']
+      tags:
+          - { name: validator.constraint_validator, alias: validatorCheckUrl }
+
+
+

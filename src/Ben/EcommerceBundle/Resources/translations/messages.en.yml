@@ -1,0 +1,6 @@
+# messages.fr.yml
+
+title:
+    add_address: add a new address
+    delivery_address: Delivery address
+    billing_address: Billing address

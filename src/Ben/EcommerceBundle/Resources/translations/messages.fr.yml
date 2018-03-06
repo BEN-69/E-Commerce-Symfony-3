@@ -1,3 +1,6 @@
 # messages.fr.yml
-Symfony is great: J'aime Symfony
 
+title:
+    add_address: Ajouter une nouvelle adresse
+    delivery_address: Adresse de livraison
+    billing_address: Adresse de facturation
