@@ -4,7 +4,9 @@ namespace Ben\UtilisateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UtilisateurController extends Controller
@@ -12,20 +14,46 @@ class UtilisateurController extends Controller
 
 
     /**
-     * @Route("/villes/{cp}", name="page_villes")
+     * @Route("/villes/{cp}", name="page_villes" , options={"expose"= true} )
+     * @param Request $request
+     * @param $cp
+     * @return JsonResponse
      */
-    public function villesAction($cp)
+    public function villesAction(Request $request,$cp)
     {
-        $em = $this->getDoctrine()->getManager();
-        $villeCodePostal = $em->getRepository('BenUtilisateurBundle:Villes')->findOneBy(array('villeCodePostal' => $cp));
+        if ($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $villeCodePostal = $em->getRepository('BenUtilisateurBundle:Villes')->findOneBy(array('villeCodePostal' => $cp));
 
-        if ($villeCodePostal) {
-            $ville = $villeCodePostal->getVilleNom();
+            if ($villeCodePostal) {
+                $ville = $villeCodePostal->getVilleNom();
+            } else {
+                $ville = null;
+            }
+            $response = new JsonResponse();
+            return $response->setData(array('ville' => $ville));
         } else {
-            $ville = null;
+            throw new Exception('Erreur');
         }
-        $response = new JsonResponse();
-        return $response->setData(array('ville' => $ville));
+            /*
+
+                if ($request->isXmlHttpRequest()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $villeCodePostal = $em->getRepository('BenUtilisateurBundle:Villes')->findBy(array('villeCodePostal' => $cp));
+                    if ($villeCodePostal) {
+                        $villes = array();
+                        foreach($villeCodePostal as $ville) {
+                            $villes[] = $ville->getVilleNom();
+                        }
+                    } else {
+                        $ville = null;
+                    }
+                    $response = new JsonResponse();
+                    return $response->setData(array('ville' => $villes));
+                } else {
+                    throw new Exception('Erreur');
+                }
+             }*/
     }
 
 

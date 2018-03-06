@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Ensepar\Html2pdfBundle\EnseparHtml2pdfBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
          //   new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             //new JMS\AopBundle\JMSAopBundle(),
             //new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
