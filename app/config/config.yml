@@ -127,3 +127,4 @@ stof_doctrine_extensions:
         default:
             sluggable: true
             timestampable: true
+            softdeleteable: true
