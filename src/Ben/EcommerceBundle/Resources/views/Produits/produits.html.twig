@@ -2,8 +2,9 @@
 
 
     {% block title %}
-        {% if t is defined %}
-            {{ produits['1'].categorie.nom }}
+
+        {% if produits|length != 0 %}
+            {{ produits['1'].categorie.nom }} -  {{ titre }}
         {% else %}
             {{ titre }}
         {% endif %}

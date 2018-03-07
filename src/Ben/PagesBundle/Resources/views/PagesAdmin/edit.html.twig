@@ -3,12 +3,17 @@
 {% block bodyAdmin %}
     <h1>Page edit</h1>
     <br/>
+
+    {{ form_start(edit_form) }}
     <div class="span8">
-        {{ form(edit_form) }}
+        {{ form_widget(edit_form) }}
     </div>
     <div class="form-span12">
         <input type="submit" value="Edit" class="btn btn-primary span3"/>
     </div>
+    {{ form_end(edit_form) }}
+
+
     <div class="span12">
     <ul>
         <li>

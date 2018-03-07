@@ -1,0 +1,26 @@
+{% extends '::default/layoutDefault.html.twig' %}
+
+
+{% block bodyDefault %}
+
+<div class="span9">
+
+    <h2>CONTACTEZ-NOUS</h2>
+    <p>Vous souhaitez obtenir des informations ? Vous desirez nous laisser un message ?
+        <br />Remplissez ce formulaire afin d'entrer en contact avec notre équipe.</p>
+    <br/>
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+    <div class="offset1 span12">
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" class="btn btn-primary span3"/>
+    </div>
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}

@@ -42,7 +42,7 @@ class ProduitsController extends Controller
         $produits =  $this->get('knp_paginator')->paginate(
             $findProduits, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
-            3/*limit per page*/
+            6/*limit per page*/
         );
 
         return $this->render('@BenEcommerce/Produits/produits.html.twig',array('produits'=>$produits,'panier'=>$panier));

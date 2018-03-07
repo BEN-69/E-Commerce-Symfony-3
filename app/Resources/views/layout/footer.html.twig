@@ -13,16 +13,17 @@
 
 			<div class="span4">
 				<h4>Notre entrepôt</h4>
-				<p><i class="icon-map-marker"></i>&nbsp;{{ adresse }}
-				</p>
+				<p><i class="icon-map-marker"></i>&nbsp;{{ adresse }}</p>
+				<p><i class="icon-phone"></i>&nbsp; {{ telephone }}</p>
+				<p><i class="icon-print"></i>&nbsp; {{ fax }}</p>
 
 			</div>
 
 			<div class="span2">
 				<h4>Nous contacter</h4>
-				<p><i class="icon-phone"></i>&nbsp; {{ telephone }}</p>
-				<p><i class="icon-print"></i>&nbsp; {{ fax }}</p>
+				<p><i class="icon-sitemap"></i>&nbsp; <a href="{{ path('pages_contact') }}">Page Contact</a></p>
 				<p><i class="icon-mail-forward"></i>&nbsp; {{ email }}</p>
+
 			</div>
 		</div>
 		<hr />

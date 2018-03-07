@@ -4,20 +4,32 @@
 
     <h1>Créer une page </h1>
     <br/>
+
+
+    {{ form_start(form) }}
     <div class="span8">
-        {{ form(form) }}
+        {{ form_widget(form) }}
     </div>
     <div class="span12">
         <input type="submit" value="Create" class="btn btn-primary span3"/>
     </div>
+    {{ form_end(form) }}
+
+
 
     <div class="span8">
-    <ul>
-        <li>
-            <a href="{{ path('admin_pages_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <ul>
+            <li>
+                <a href="{{ path('admin_pages_index') }}">Back to the list</a>
+            </li>
+        </ul>
     </div>
+
+
+
+
+
+
 
 
 {% endblock %}

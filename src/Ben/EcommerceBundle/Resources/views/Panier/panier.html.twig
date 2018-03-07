@@ -9,6 +9,7 @@
     {% for produit in produits %}
         {% set refTva = refTva|merge({ ('%' ~ produit.tva.valeur) : 0 }) %}
     {% endfor %}
+
     <div class="span9">
         <h2>Votre parnier</h2>
         {% if app.session.flashBag.has('success') %}
